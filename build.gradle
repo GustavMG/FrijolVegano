@@ -1,0 +1,32 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '2.7.13'
+	id 'io.spring.dependency-management' version '1.0.15.RELEASE'
+}
+
+group = 'com'
+version = '0.0.1-SNAPSHOT'
+
+java {
+	sourceCompatibility = '17'
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	//Estas dependencias se colocaron desde que se generó el proyecto recurso: https://start.spring.io
+	
+	//Dependencia para trabajar con JPA (Java Perisitence API) --Este es el general
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	//Dependencia de spring web (sirve para que la aplicación se convierta en una aplicación web REST)
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	//Es una dependencia para conectar nuestro proyecto con una BD de MySQL
+	runtimeOnly 'com.mysql:mysql-connector-j'
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}

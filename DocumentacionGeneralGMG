@@ -1,0 +1,120 @@
+@author GustavMG
+Documentación del proyeto
+
+El flujo de trabajo es el siguiente:
+
+Entidades --> Repositorios --> Servicios --> Controladores
+
+*De entidades a repositorio se hace una importación
+*A partir de Repositorios hasta Controladores son inyecciones (instancias)
+
+Nota: 
+	- La importación es hacer referencia de un dato (dentro de un paquete) en una clase o interface
+	- La inyección es crear una instancia de una clase en otra clase (le decimos al constructor de nuestra clase que su
+	parámetro de entrada es una instancia y los datos de esta instancia se asiganan a una instancia constante creada en la clase.
+
+1. Entidades:
+	
+ 	Le decimos con la anotación @RestController que es una API del tipo Rest(que trabaja con metodos HTTP)
+ 	Le decimos con la anotación @RequestMapping de Spring Framework que se utiliza en las clases de Java con Spring Boot 
+ 	para mapear solicitudes HTTP a métodos específicos.
+ 	Esta anotación se coloca en métodos o en la clase misma para definir las rutas URL que se corresponden con ese método 
+ 	o clase en particular.
+ 
+ 	La estructura es:
+ 	- Una constante de una instancia de la interface Service/Servicios (Se debe importar el package donde esta esta clase)
+ 	- Se coloca la anotación @Autowired que sirve como puente entre la constante y el constructor para hacer la conexión
+ 	- Se crea un constructor que recibe como parametro una instancia, a la constante declarada (que tambien fue una instancias)
+    al principio se le asigna el parametro de entrada.
+    		Esto es la inyección de la dependencia ya que el constructor de esta clase recibe una instancia de una clase externa
+    
+ 	Se colocan los metodos que se requieran utilizando @GetMapping
+ 
+ 	@GetMapping lo va a traer de una ruta en especifico, por ejemplo aqui es:
+ 		localhost:8080/frijolVegano/carritos
+ 		localhost:8080/frijolVegano/cursos
+ 		localhost:8080/frijolVegano/productos
+ 		localhost:8080/frijolVegano/resenias
+ 		localhost:8080/frijolVegano/usuarios
+ 	
+ 	La clase maneja la siguiente estructura internamente:
+ 		* Atributos  --> Se requeire indicar que trabajamos con un ID
+ 		* Constructores --> Se requiere un constructor vacío
+ 		* Getters y Setters
+ 		* metodo toString() que devuelve los datos ingresados en el constructor
+ 	
+ 	public class NombreClase {
+	@Id  --> Decimos que la PK de nuestra tabla es el atributo ID
+	@GeneratedValue(strategy = GenerationType.IDENTITY)  --> Para generar valores automaticamente de forma autoincremental, en el campo id que es nuestra PK de la BD
+	@Column(name = "id", unique = true, nullable = false)  --> El name colocado es el que hayamos puesto en la Base de Datos (podria ser cualquier nombre, solo hay que corroborarlo)
+	
+	private Long id;
+		.
+		.
+		Aqui ponemos los demas atributos a usar que TIENEN QUE COINCIDIR CON LAS TABLAS
+		.
+	
+	public NombreClase( Parametros de entrada que coincidan con los atributos ){
+	} 
+		Generarlo automaticamente de preferencia y NO OLVIDAR eliminar el super(); pq no tiene una clase padre
+	}
+	public NombreClase( ){
+		Constructor vacío
+	}
+	
+	get(){	}
+	set(){	}
+	
+	@Override
+	public String toString() {
+		return " los datos de entrada ";
+	}
+	}
+
+2. Repositorios
+	JpaRepository es una interfaz proporcionada por Spring Data JPA, que es un subproyecto de Spring Framework 
+ 	diseñado para simplificar el acceso y la manipulación de datos en aplicaciones Java utilizando la tecnología 
+ 	de mapeo objeto-relacional (ORM).
+ 
+ 	La interfaz JpaRepository proporciona una serie de métodos predefinidos para realizar operaciones comunes de 
+ 	persistencia en una base de datos. Estos métodos incluyen métodos para guardar, recuperar, actualizar y eliminar 
+ 	entidades en la base de datos, así como para realizar consultas personalizadas.
+ 
+ 	T de tipo y ID de identificador
+ 	T del tipo de Entidad y el ID como el tipo de dato del ID
+
+3. Servicios
+	Le decimos con la anotación @Service que esta clase es un servicio y se importa....
+ 	La estructura es:
+  	- Una constante de una instancia de la interface Repository/Repositorio (Se debe importar el package donde esta esta interface)
+  	- Se coloca la anotación @Autowired que sirve como puente entre la constante y el constructor para hacer la conexión
+  	- Se crea un constructor que recibe como parametro una instancia, a la constante declarada (que tambien fue una instancias)
+     al principio se le asigna el parametro de entrada.
+     		Esto es la inyección de la dependencia ya que el constructor de esta clase recibe una instancia de una clase externa
+     
+  	Se colocan los metodos que se requieran
+  
+  	@Nota: recordar que la capa de Service/Servicios, se encarga de DEFINIR la lógica de negocio del lado de JAVA 
+  	aqui es donde vamos a definir los METODOS ENFOCADOS a las operaciones del CRUD que serán "disparados"
+  	por los metodos HTTP que se encontraran en el Controller/Controlador
+  	
+  	Nota: Agregar los metodos en CADA Service
+
+4. Controladores:
+	Le decimos con la anotación @RestController que es una API del tipo Rest(que trabaja con metodos HTTP)
+  	Le decimos con la anotación @RequestMapping de Spring Framework que se utiliza en las clases de Java con Spring Boot 
+  	para mapear solicitudes HTTP a métodos específicos.
+  	Esta anotación se coloca en métodos o en la clase misma para definir las rutas URL que se corresponden con ese método 
+  	o clase en particular.
+  
+  	La estructura es:
+  	- Una constante de una instancia de la interface Service/Servicios (Se debe importar el package donde esta esta clase)
+  	- Se coloca la anotación @Autowired que sirve como puente entre la constante y el constructor para hacer la conexión
+  	- Se crea un constructor que recibe como parametro una instancia, a la constante declarada (que tambien fue una instancias)
+     al principio se le asigna el parametro de entrada.
+    --------Esto es la inyección de la dependencia ya que el constructor de esta clase recibe una instancia de una clase externa----------
+     
+  	Se colocan los metodos que se requieran utilizando @GetMapping
+  
+  	@GetMapping lo va a traer de una ruta en especifico, por ejemplo aqui es localhost:8080/frijolVegano/productos y el endPoint va a variar
+  	segun donde queramos acceder: resenias,cursos,productos,etc.
