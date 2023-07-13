@@ -19,8 +19,8 @@ import com.FrijolVegano.Entity.Usuarios;
 import com.FrijolVegano.Service.UsuariosService;
 
 @RestController
-@RequestMapping (path = "/frijolVegano/usuarios")
-//@CrossOrigin(origins = "*", methods = { RequestMethod.GET, RequestMethod.POST, RequestMethod.DELETE,RequestMethod.PUT })
+@RequestMapping (path = "/frijolVegano/usuario")
+@CrossOrigin(origins = "*", methods = { RequestMethod.GET, RequestMethod.POST, RequestMethod.DELETE,RequestMethod.PUT })
 public class UsuariosController {
 	public final UsuariosService usuariosService;
 	@Autowired
