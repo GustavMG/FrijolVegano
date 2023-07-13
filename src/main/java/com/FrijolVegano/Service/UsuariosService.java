@@ -30,9 +30,9 @@ public class UsuariosService {
 	//Creamos nuevos usuarios(POST)
 	public Usuarios crearUsuarios(Usuarios usuarios) {
 		Usuarios usuarioTemp = null;
-		if(usuariosRepository.buscarPorEmail(usuarios.getEmail()).isEmpty()) {
+//		if(usuariosRepository.buscarPorEmail(usuarios.getEmail()).isEmpty()) {
 			usuarioTemp = usuariosRepository.save(usuarios);
-		}
+//		}
 		return usuarioTemp;
 	}//crearUsuarios
 	
