@@ -1,15 +1,19 @@
 package com.FrijolVegano.Entity;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+//import org.springframework.web.bind.annotation.RequestMapping;
+//import org.springframework.web.bind.annotation.RestController;
 
-@RestController
-@RequestMapping (path = "/FrijolVegano/carritos")
+//@RestController
+//@RequestMapping (path = "/FrijolVegano/carritos")
+@Entity
+@Table (name = "producto")
 public class Carritos {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
