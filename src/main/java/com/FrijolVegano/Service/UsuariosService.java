@@ -38,7 +38,7 @@ public class UsuariosService {
 	
 	//Modificamos parametros del usuario (PUT) 
 	//EXCEPTUANDO EL COREEO todos los demas parámetros se pueden modificar
-	public Usuarios modificarUsuarios(Long id, Boolean admin, String nombre, String telefono, String email, String contrasenia, String imagenPerfil, String direccion) {
+	public Usuarios modificarUsuarios(Long id, boolean admin, String nombre, String telefono, String email, String contrasenia, String imagenPerfil, String direccion) {
 		Usuarios usuarioTemp = null;
 		if(usuariosRepository.existsById(id)) {
 			usuarioTemp = usuariosRepository.findById(id).get();
