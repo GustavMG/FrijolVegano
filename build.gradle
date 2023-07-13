@@ -24,7 +24,7 @@ dependencies {
 	//Dependencia de spring web (sirve para que la aplicación se convierta en una aplicación web REST)
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	//Es una dependencia para conectar nuestro proyecto con una BD de MySQL
-	runtimeOnly 'com.mysql:mysql-connector-j'
+	implementation 'com.mysql:mysql-connector-j:8.0.31'
 }
 
 tasks.named('test') {
