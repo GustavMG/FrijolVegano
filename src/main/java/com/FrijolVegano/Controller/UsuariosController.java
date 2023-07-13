@@ -53,7 +53,7 @@ public class UsuariosController {
 	//Modificar usuarios(por su id existente)
 	@PutMapping(path = "{idUsuarios}")
 	public Usuarios putUsuarios(@PathVariable("idUsuarios") Long id,
-			@RequestParam(required = false) boolean admin,
+			@RequestParam(required = false) Boolean admin,
 			@RequestParam(required = false)String nombre,
 			@RequestParam(required = false)String telefono,
 			@RequestParam(required = false)String email,
