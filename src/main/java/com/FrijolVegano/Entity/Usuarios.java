@@ -16,7 +16,7 @@ public class Usuarios {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id", unique = true, nullable = false)
 	private Long id;
-	private String admin;
+	private Boolean admin;
 	private String nombre;
 	private String telefono;
 	private String email;
@@ -25,7 +25,7 @@ public class Usuarios {
 	private String direccion;
 	
 	//Constructor
-	public Usuarios(Long id, String admin, String nombre, String telefono, String email, String contrasenia,
+	public Usuarios(Long id, Boolean admin, String nombre, String telefono, String email, String contrasenia,
 			String imagenPerfil, String direccion) {
 		this.id = id;
 		this.admin = admin;
@@ -44,11 +44,11 @@ public class Usuarios {
 		return id;
 	}
 
-	public String isAdmin() {
+	public Boolean isAdmin() {
 		return admin;
 	}
 
-	public void setAdmin(String admin) {
+	public void setAdmin(Boolean admin) {
 		this.admin = admin;
 	}
 
