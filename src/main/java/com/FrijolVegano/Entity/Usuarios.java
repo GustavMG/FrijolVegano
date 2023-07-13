@@ -44,7 +44,7 @@ public class Usuarios {
 		return id;
 	}
 
-	public boolean isAdmin() {
+	public Boolean isAdmin() {
 		return admin;
 	}
 
