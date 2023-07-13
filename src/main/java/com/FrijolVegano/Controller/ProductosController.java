@@ -28,7 +28,7 @@ public class ProductosController {
 	public List<Productos> getProductos(){
 		return null;
 	}
-	//POST
+//	POST
 //	@PostMapping
 //	//PUT
 //	@PutMapping
