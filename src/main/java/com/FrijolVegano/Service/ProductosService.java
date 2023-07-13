@@ -8,55 +8,76 @@ import org.springframework.stereotype.Service;
 
 import com.FrijolVegano.Entity.Productos;
 import com.FrijolVegano.Repository.ProductosRepository;
-@Service
+
+@Service //De esta forma indicamos que esta clase es un servicio
+
 public class ProductosService {
+	
 	public final ProductosRepository productosRepository;
+	
+	//Anotacion que funciona para el autoconectado
 	@Autowired
+	
+	
 	public ProductosService(ProductosRepository productosRepository) {
 		this.productosRepository = productosRepository;
 	}//Constructor
 	
-	//Los metodos para los PRODUCTOS, deberian ser agregar, modificar y eliminar
+	//Los metodos del CRUD para los PRODUCTOS, deberian ser agregar, modificar y eliminar
 	public List<Productos> leerProductos(){
 		return productosRepository.findAll();
 	}//leerProductos
 	
 	//Buscar/Leer PRODUCTO
-	public Optional<Productos> leerProductosId(Long id){
+	public Optional<Productos> leerProductosNombre(Long id){
 		return productosRepository.findById(id);
-	}//leerProductos id
+	}//leerProductos por nombre
 	
 	//CREAR PRODUCTO
 	public Productos crearProductos(Productos productos) {
 		Productos productoTemp = null;
-//		if(productosRepository.buscarPorNombre(getNombre()).isEmpty())
+		if(productosRepository.buscarPorNombre(productos.getNombre()).isEmpty()){
 			productoTemp = productosRepository.save(productos);
-//		}
+		}
 		return productoTemp;
 	}//crearProductos
 	
 	//MODIFICAR PRODUCTO
-	public Productos modificarProductos(Productos productos) {
+	public Productos modificarProductos(Long id, Boolean esProducto, String nombre, String marca, String presentacion, String fabricante,
+			String descripcion, String tipoEnvase, String dimensiones, String pesoTotal, String existencias,
+			Double precio, String imgUrl, Boolean enOferta, Double precioOferta) {
+		
 		Productos productoTemp = null;
-//		if(productosRepository.existsById(id)) {
-		if(productosRepository.existsById(null)) {
-//			productoTemp = productosRepository.findById(id).get();
-			productoTemp = productosRepository.findById(null).get();
-			//TODO:Agregar las validaciones de las entradas, se requiere los parametros de la tabla, por ejemplo:
-//			if(nombre != null) productoTemp.setNombre(nombre);
+		
+		if(productosRepository.existsById(id)) {
+			// Se modificaran sus parametros
+			productoTemp = productosRepository.findById(id).get();
+			if(nombre != null) productoTemp.setNombre(nombre);
+			if(marca != null) productoTemp.setMarca(marca);
+			if(presentacion != null) productoTemp.setPresentacion(presentacion);
+			if(fabricante != null) productoTemp.setFabricante(fabricante);
+			if(descripcion != null) productoTemp.setDescripcion(descripcion);
+			if(tipoEnvase != null) productoTemp.setTipoEnvase(tipoEnvase);
+			if(dimensiones != null) productoTemp.setDimensiones(dimensiones);
+			if(pesoTotal != null) productoTemp.setPesoTotal(pesoTotal);
+			if(existencias != null) productoTemp.setExistencias(existencias);
+			if(precio != null) productoTemp.setPrecio(precio);
+			if(imgUrl != null) productoTemp.setImgUrl(imgUrl);
+			if(enOferta != null)productoTemp.setEnOferta(enOferta);
+			if(precioOferta != null) productoTemp.setPrecioOferta(precioOferta);
 			
-			productoTemp = productosRepository.save(productos);
+			productosRepository.save(productoTemp);
 		}
 		return productoTemp;
 	}//modificarProductos
 	
 	//ELIMINAR PRODUCTO
-	public Productos eliminarProductos(Productos productos) {
+	public Productos eliminarProductos(Long id) {
 		Productos productoTemp = null;
-//		if(productosRepository.existsById(id)) {
-		if(productosRepository.existsById(null)) {
-			productoTemp = productosRepository.findById(null).get();
-			productosRepository.delete(null);
+		
+		if(productosRepository.existsById(id)) {
+			productoTemp = productosRepository.findById(id).get();
+			productosRepository.deleteById(id);
 		}
 		return productoTemp;
 	}//eliminarProductos
