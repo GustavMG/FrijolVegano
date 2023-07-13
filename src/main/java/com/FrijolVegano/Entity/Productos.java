@@ -23,7 +23,7 @@ public class Productos {
 	
 	@Column(name = "id", unique = true, nullable = false)
 	private Long id;
-	private boolean esProducto;
+	private Boolean esProducto;
 	private String nombre;
 	private String marca;
 	private String presentacion;
@@ -33,16 +33,16 @@ public class Productos {
 	private String dimensiones;
 	private String pesoTotal;
 	private String existencias;
-	private double precio;
+	private Double precio;
 	private String imgUrl;
-	private boolean enOferta;
-	private double precioOferta;
+	private Boolean enOferta;
+	private Double precioOferta;
 	
 	//Constructor con todos los campos -----------------------------------------------------------------------
 	
-	public Productos(Long id, boolean esProducto, String nombre, String marca, String presentacion, String fabricante,
+	public Productos(Long id, Boolean esProducto, String nombre, String marca, String presentacion, String fabricante,
 			String descripcion, String tipoEnvase, String dimensiones, String pesoTotal, String existencias,
-			double precio, String imgUrl, boolean enOferta, double precioOferta) {
+			Double precio, String imgUrl, Boolean enOferta, Double precioOferta) {
 		super();
 		this.id = id;
 		this.esProducto = esProducto;
@@ -73,7 +73,7 @@ public class Productos {
 		return esProducto;
 	}
 
-	public void setEsProducto(boolean esProducto) {
+	public void setEsProducto(Boolean esProducto) {
 		this.esProducto = esProducto;
 	}
 
@@ -153,7 +153,7 @@ public class Productos {
 		return precio;
 	}
 
-	public void setPrecio(double precio) {
+	public void setPrecio(Double precio) {
 		this.precio = precio;
 	}
 
@@ -169,7 +169,7 @@ public class Productos {
 		return enOferta;
 	}
 
-	public void setEnOferta(boolean enOferta) {
+	public void setEnOferta(Boolean enOferta) {
 		this.enOferta = enOferta;
 	}
 
@@ -177,7 +177,7 @@ public class Productos {
 		return precioOferta;
 	}
 
-	public void setPrecioOferta(double precioOferta) {
+	public void setPrecioOferta(Double precioOferta) {
 		this.precioOferta = precioOferta;
 	}
 
