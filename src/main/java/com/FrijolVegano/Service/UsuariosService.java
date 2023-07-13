@@ -3,11 +3,10 @@ package com.FrijolVegano.Service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 import com.FrijolVegano.Entity.Usuarios;
 import com.FrijolVegano.Repository.UsuariosRepository;
-@Service
+
 public class UsuariosService {
 	public final UsuariosRepository usuariosRepository;
 	@Autowired
