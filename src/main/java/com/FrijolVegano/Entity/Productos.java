@@ -13,7 +13,7 @@ import javax.persistence.Table;
 //@RestController
 //@RequestMapping (path = "/FrijolVegano/productos")
 @Entity
-@Table (name = "producto")
+@Table (name = "productos")
 public class Productos {
 	
 	@Id //Llave Primaria
@@ -23,58 +23,56 @@ public class Productos {
 	
 	@Column(name = "id", unique = true, nullable = false)
 	private Long id;
-	private Boolean esProducto;
+	private String es_producto;
 	private String nombre;
 	private String marca;
 	private String presentacion;
 	private String fabricante;
 	private String descripcion;
-	private String tipoEnvase;
+	private String tipo_envase;
 	private String dimensiones;
-	private String pesoTotal;
+	private String peso_total;
 	private String existencias;
-	private Double precio;
-	private String imgUrl;
-	private Boolean enOferta;
-	private Double precioOferta;
+	private double precio;
+	private String img_url;
+	private String en_oferta;
+	private double precio_oferta;
+	
 	
 	//Constructor con todos los campos -----------------------------------------------------------------------
-	
-	public Productos(Long id, Boolean esProducto, String nombre, String marca, String presentacion, String fabricante,
-			String descripcion, String tipoEnvase, String dimensiones, String pesoTotal, String existencias,
-			Double precio, String imgUrl, Boolean enOferta, Double precioOferta) {
+	public Productos(Long id, String es_producto, String nombre, String marca, String presentacion, String fabricante,
+			String descripcion, String tipo_envase, String dimensiones, String peso_total, String existencias,
+			double precio, String img_url, String en_oferta, double precio_oferta) {
 		super();
 		this.id = id;
-		this.esProducto = esProducto;
+		this.es_producto = es_producto;
 		this.nombre = nombre;
 		this.marca = marca;
 		this.presentacion = presentacion;
 		this.fabricante = fabricante;
 		this.descripcion = descripcion;
-		this.tipoEnvase = tipoEnvase;
+		this.tipo_envase = tipo_envase;
 		this.dimensiones = dimensiones;
-		this.pesoTotal = pesoTotal;
+		this.peso_total = peso_total;
 		this.existencias = existencias;
 		this.precio = precio;
-		this.imgUrl = imgUrl;
-		this.enOferta = enOferta;
-		this.precioOferta = precioOferta;
+		this.img_url = img_url;
+		this.en_oferta = en_oferta;
+		this.precio_oferta = precio_oferta;
 	}
 	
 	//Constructor vacio --------------------------------------------------------------------------------------
-	
 	public Productos() {
 		
 	}
 	
 	//Setter y Getters ---------------------------------------------------------------------------------------
-	
-	public boolean isEsProducto() {
-		return esProducto;
+	public String isEs_producto() {
+		return es_producto;
 	}
 
-	public void setEsProducto(Boolean esProducto) {
-		this.esProducto = esProducto;
+	public void setEs_producto(String es_producto) {
+		this.es_producto = es_producto;
 	}
 
 	public String getNombre() {
@@ -117,12 +115,12 @@ public class Productos {
 		this.descripcion = descripcion;
 	}
 
-	public String getTipoEnvase() {
-		return tipoEnvase;
+	public String getTipo_envase() {
+		return tipo_envase;
 	}
 
-	public void setTipoEnvase(String tipoEnvase) {
-		this.tipoEnvase = tipoEnvase;
+	public void setTipo_envase(String tipo_envase) {
+		this.tipo_envase = tipo_envase;
 	}
 
 	public String getDimensiones() {
@@ -133,12 +131,12 @@ public class Productos {
 		this.dimensiones = dimensiones;
 	}
 
-	public String getPesoTotal() {
-		return pesoTotal;
+	public String getPeso_total() {
+		return peso_total;
 	}
 
-	public void setPesoTotal(String pesoTotal) {
-		this.pesoTotal = pesoTotal;
+	public void setPeso_total(String peso_total) {
+		this.peso_total = peso_total;
 	}
 
 	public String getExistencias() {
@@ -153,48 +151,48 @@ public class Productos {
 		return precio;
 	}
 
-	public void setPrecio(Double precio) {
+	public void setPrecio(double precio) {
 		this.precio = precio;
 	}
 
-	public String getImgUrl() {
-		return imgUrl;
+	public String getImg_url() {
+		return img_url;
 	}
 
-	public void setImgUrl(String imgUrl) {
-		this.imgUrl = imgUrl;
+	public void setImg_url(String img_url) {
+		this.img_url = img_url;
 	}
 
-	public boolean isEnOferta() {
-		return enOferta;
+	public String isEn_oferta() {
+		return en_oferta;
 	}
 
-	public void setEnOferta(Boolean enOferta) {
-		this.enOferta = enOferta;
+	public void setEn_oferta(String en_oferta) {
+		this.en_oferta = en_oferta;
 	}
 
-	public double getPrecioOferta() {
-		return precioOferta;
+	public double getPrecio_oferta() {
+		return precio_oferta;
 	}
 
-	public void setPrecioOferta(Double precioOferta) {
-		this.precioOferta = precioOferta;
+	public void setPrecio_oferta(double precio_oferta) {
+		this.precio_oferta = precio_oferta;
 	}
 
 	public Long getId() {
 		return id;
 	}
-
-	// toString ---------------------------------------------------------------------------------------------
 	
+	// toString ---------------------------------------------------------------------------------------------
 	@Override
 	public String toString() {
-		return "Productos [id=" + id + ", esProducto=" + esProducto + ", nombre=" + nombre + ", marca=" + marca
+		return "Productos [id=" + id + ", es_producto=" + es_producto + ", nombre=" + nombre + ", marca=" + marca
 				+ ", presentacion=" + presentacion + ", fabricante=" + fabricante + ", descripcion=" + descripcion
-				+ ", tipoEnvase=" + tipoEnvase + ", dimensiones=" + dimensiones + ", pesoTotal=" + pesoTotal
-				+ ", existencias=" + existencias + ", precio=" + precio + ", imgUrl=" + imgUrl + ", enOferta="
-				+ enOferta + ", precioOferta=" + precioOferta + "]";
-	}
+				+ ", tipo_envase=" + tipo_envase + ", dimensiones=" + dimensiones + ", peso_total=" + peso_total
+				+ ", existencias=" + existencias + ", precio=" + precio + ", img_url=" + img_url + ", en_oferta="
+				+ en_oferta + ", precio_oferta=" + precio_oferta + "]";
+	}	
+
 	
 	
 	
