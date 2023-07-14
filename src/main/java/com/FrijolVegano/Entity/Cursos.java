@@ -24,16 +24,16 @@ public class Cursos {
 	private String titulo;
 	private String categoria;
 	private String descripcion;
-	private double precio;
+	private Double precio;
 	private String detalles;
 	private String aprendizaje;
 	private String img_url;
 	private String video_url;
-	private int estrellas;
+	private Integer estrellas;
 	
 	// Constructor --------------------------------------------------------------------------------------------
-	public Cursos(Long id, String es_producto, String titulo, String categoria, String descripcion, double precio,
-			String detalles, String aprendizaje, String img_url, String video_url, int estrellas) {
+	public Cursos(Long id, String es_producto, String titulo, String categoria, String descripcion, Double precio,
+			String detalles, String aprendizaje, String img_url, String video_url, Integer estrellas) {
 		super();
 		this.id = id;
 		this.es_producto = es_producto;
@@ -86,11 +86,11 @@ public class Cursos {
 		this.descripcion = descripcion;
 	}
 
-	public double getPrecio() {
+	public Double getPrecio() {
 		return precio;
 	}
 
-	public void setPrecio(double precio) {
+	public void setPrecio(Double precio) {
 		this.precio = precio;
 	}
 
@@ -126,11 +126,11 @@ public class Cursos {
 		this.video_url = video_url;
 	}
 
-	public int getEstrellas() {
+	public Integer getEstrellas() {
 		return estrellas;
 	}
 
-	public void setEstrellas(int estrellas) {
+	public void setEstrellas(Integer estrellas) {
 		this.estrellas = estrellas;
 	}
 

@@ -45,8 +45,8 @@ public class CursosService {
 	}//Crear Producto
 	
 	//Metodo para modificar un producto
-	public Cursos actualizarCurso(Long id, String es_producto, String titulo, String categoria, String descripcion, double precio,
-			String detalles, String aprendizaje, String img_url, String video_url, int estrellas) {
+	public Cursos actualizarCurso(Long id, String es_producto, String titulo, String categoria, String descripcion, Double precio,
+			String detalles, String aprendizaje, String img_url, String video_url, Integer estrellas) {
 		
 		Cursos cursoTemporal = null;
 		
@@ -56,12 +56,12 @@ public class CursosService {
 			if(titulo != null)cursoTemporal.setTitulo(titulo);
 			if(categoria != null)cursoTemporal.setCategoria(categoria);
 			if(descripcion != null)cursoTemporal.setDescripcion(descripcion);
-			if(precio != 0.0)cursoTemporal.setPrecio(precio);
+			if(precio != null)cursoTemporal.setPrecio(precio);
 			if(detalles != null)cursoTemporal.setDetalles(detalles);
 			if(aprendizaje != null)cursoTemporal.setAprendizaje(aprendizaje);
 			if(img_url != null)cursoTemporal.setImg_url(img_url);
 			if(video_url != null)cursoTemporal.setVideo_url(video_url);
-			if(estrellas != 0)cursoTemporal.setEstrellas(estrellas);
+			if(estrellas != null)cursoTemporal.setEstrellas(estrellas);
 			cursosRepository.save(cursoTemporal);
 		}
 		return cursoTemporal;

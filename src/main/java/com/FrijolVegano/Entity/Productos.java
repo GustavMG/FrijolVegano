@@ -33,16 +33,16 @@ public class Productos {
 	private String dimensiones;
 	private String peso_total;
 	private String existencias;
-	private double precio;
+	private Double precio;
 	private String img_url;
 	private String en_oferta;
-	private double precio_oferta;
+	private Double precio_oferta;
 	
 	
 	//Constructor con todos los campos -----------------------------------------------------------------------
 	public Productos(Long id, String es_producto, String nombre, String marca, String presentacion, String fabricante,
 			String descripcion, String tipo_envase, String dimensiones, String peso_total, String existencias,
-			double precio, String img_url, String en_oferta, double precio_oferta) {
+			Double precio, String img_url, String en_oferta, Double precio_oferta) {
 		super();
 		this.id = id;
 		this.es_producto = es_producto;
@@ -147,11 +147,11 @@ public class Productos {
 		this.existencias = existencias;
 	}
 
-	public double getPrecio() {
+	public Double getPrecio() {
 		return precio;
 	}
 
-	public void setPrecio(double precio) {
+	public void setPrecio(Double precio) {
 		this.precio = precio;
 	}
 
@@ -171,11 +171,11 @@ public class Productos {
 		this.en_oferta = en_oferta;
 	}
 
-	public double getPrecio_oferta() {
+	public Double getPrecio_oferta() {
 		return precio_oferta;
 	}
 
-	public void setPrecio_oferta(double precio_oferta) {
+	public void setPrecio_oferta(Double precio_oferta) {
 		this.precio_oferta = precio_oferta;
 	}
 

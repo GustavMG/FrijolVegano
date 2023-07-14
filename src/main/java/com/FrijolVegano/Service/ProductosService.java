@@ -45,7 +45,7 @@ public class ProductosService {
 	//MODIFICAR PRODUCTO
 	public Productos modificarProductos(Long id, String es_producto, String nombre, String marca, String presentacion, String fabricante,
 			String descripcion, String tipo_envase, String dimensiones, String peso_total, String existencias,
-			double precio, String img_url, String en_oferta, double precio_oferta) {
+			Double precio, String img_url, String en_oferta, Double precio_oferta) {
 		
 		Productos productoTemp = null;
 		
@@ -62,10 +62,10 @@ public class ProductosService {
 			if(dimensiones != null) productoTemp.setDimensiones(dimensiones);
 			if(peso_total != null) productoTemp.setPeso_total(peso_total);
 			if(existencias != null) productoTemp.setExistencias(existencias);
-			if(precio != 0) productoTemp.setPrecio(precio);
+			if(precio != null) productoTemp.setPrecio(precio);
 			if(img_url != null) productoTemp.setImg_url(img_url);
 			if(en_oferta != null)productoTemp.setEn_oferta(en_oferta);
-			if(precio_oferta != 0) productoTemp.setPrecio_oferta(precio_oferta);
+			if(precio_oferta != null) productoTemp.setPrecio_oferta(precio_oferta);
 			
 			productosRepository.save(productoTemp);
 		}

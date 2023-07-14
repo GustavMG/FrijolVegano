@@ -61,10 +61,10 @@ public class ProductosController {
 			@RequestParam(required = false)String dimensiones,
 			@RequestParam(required = false)String peso_total,
 			@RequestParam(required = false)String existencias,
-			@RequestParam(required = false)double precio,
+			@RequestParam(required = false)Double precio,
 			@RequestParam(required = false)String img_url,
 			@RequestParam(required = false)String en_oferta,
-			@RequestParam(required = false)double precio_oferta) {
+			@RequestParam(required = false)Double precio_oferta) {
 		
 		return productosService.modificarProductos(id, es_producto, nombre, marca, presentacion, fabricante, descripcion, tipo_envase, dimensiones, peso_total, existencias, precio, img_url, en_oferta, precio_oferta);
 	
