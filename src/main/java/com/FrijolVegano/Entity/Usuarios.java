@@ -16,24 +16,24 @@ public class Usuarios {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id", unique = true, nullable = false)
 	private Long id;
-	private boolean admin;
+	private String admon;
 	private String nombre;
 	private String telefono;
 	private String email;
 	private String contrasenia;
-	private String imagenPerfil;
+	private String imagen_perfil;
 	private String direccion;
 	
 	//Constructor
-	public Usuarios(Long id, boolean admin, String nombre, String telefono, String email, String contrasenia,
-			String imagenPerfil, String direccion) {
+	public Usuarios(Long id, String admon, String nombre, String telefono, String email, String contrasenia,
+			String imagen_perfil, String direccion) {
 		this.id = id;
-		this.admin = admin;
+		this.admon = admon;
 		this.nombre = nombre;
 		this.telefono = telefono;
 		this.email = email;
 		this.contrasenia = contrasenia;
-		this.imagenPerfil = imagenPerfil;
+		this.imagen_perfil = imagen_perfil;
 		this.direccion = direccion;
 	}//Constructor Usuarios
 	
@@ -44,12 +44,12 @@ public class Usuarios {
 		return id;
 	}
 
-	public boolean isAdmin() {
-		return admin;
+	public String isAdmon() {
+		return admon;
 	}
 
-	public void setAdmin(boolean admin) {
-		this.admin = admin;
+	public void setAdmon(String admon) {
+		this.admon = admon;
 	}
 
 	public String getNombre() {
@@ -84,12 +84,12 @@ public class Usuarios {
 		this.contrasenia = contrasenia;
 	}
 
-	public String getImagenPerfil() {
-		return imagenPerfil;
+	public String getImagen_perfil() {
+		return imagen_perfil;
 	}
 
-	public void setImagenPerfil(String imagenPerfil) {
-		this.imagenPerfil = imagenPerfil;
+	public void setImagen_perfil(String imagen_perfil) {
+		this.imagen_perfil = imagen_perfil;
 	}
 
 	public String getDireccion() {
@@ -102,8 +102,8 @@ public class Usuarios {
 
 	@Override
 	public String toString() {
-		return "Usuarios [id=" + id + ", admin=" + admin + ", nombre=" + nombre + ", telefono=" + telefono + ", email="
-				+ email + ", contrasenia=" + contrasenia + ", imagenPerfil=" + imagenPerfil + ", direccion=" + direccion
+		return "Usuarios [id=" + id + ", admon=" + admon + ", nombre=" + nombre + ", telefono=" + telefono + ", email="
+				+ email + ", contrasenia=" + contrasenia + ", imagen_perfil=" + imagen_perfil + ", direccion=" + direccion
 				+ "]";
 	}//toString
 }//Usuarios
