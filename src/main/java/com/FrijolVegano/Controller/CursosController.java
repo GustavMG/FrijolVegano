@@ -60,12 +60,12 @@ public class CursosController {
 		@RequestParam(required = false) String titulo,
 		@RequestParam(required = false) String categoria,
 		@RequestParam(required = false) String descripcion,
-		@RequestParam(required = false) double precio,
+		@RequestParam(required = false) Double precio,
 		@RequestParam(required = false) String detalles,
 		@RequestParam(required = false) String aprendizaje,
 		@RequestParam(required = false) String img_url,
 		@RequestParam(required = false) String video_url,
-		@RequestParam(required = false) int estrellas) {
+		@RequestParam(required = false) Integer estrellas) {
 		
 		return cursosService.actualizarCurso(id, es_producto, titulo, categoria, descripcion, precio, detalles, aprendizaje, img_url, video_url, estrellas);
 	
