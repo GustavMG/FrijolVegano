@@ -31,7 +31,7 @@ public class ProductosService {
 	//Buscar/Leer PRODUCTO
 	public Optional<Productos> leerProductosNombre(Long id){
 		return productosRepository.findById(id);
-	}//leerProductos por nombre
+	}//leerProductos
 	
 	//CREAR PRODUCTO
 	public Productos crearProductos(Productos productos) {
@@ -43,28 +43,29 @@ public class ProductosService {
 	}//crearProductos
 	
 	//MODIFICAR PRODUCTO
-	public Productos modificarProductos(Long id, Boolean esProducto, String nombre, String marca, String presentacion, String fabricante,
-			String descripcion, String tipoEnvase, String dimensiones, String pesoTotal, String existencias,
-			Double precio, String imgUrl, Boolean enOferta, Double precioOferta) {
+	public Productos modificarProductos(Long id, String es_producto, String nombre, String marca, String presentacion, String fabricante,
+			String descripcion, String tipo_envase, String dimensiones, String peso_total, String existencias,
+			double precio, String img_url, String en_oferta, double precio_oferta) {
 		
 		Productos productoTemp = null;
 		
 		if(productosRepository.existsById(id)) {
 			// Se modificaran sus parametros
 			productoTemp = productosRepository.findById(id).get();
+			if(es_producto != null) productoTemp.setEs_producto(es_producto);
 			if(nombre != null) productoTemp.setNombre(nombre);
 			if(marca != null) productoTemp.setMarca(marca);
 			if(presentacion != null) productoTemp.setPresentacion(presentacion);
 			if(fabricante != null) productoTemp.setFabricante(fabricante);
 			if(descripcion != null) productoTemp.setDescripcion(descripcion);
-			if(tipoEnvase != null) productoTemp.setTipoEnvase(tipoEnvase);
+			if(tipo_envase != null) productoTemp.setTipo_envase(tipo_envase);
 			if(dimensiones != null) productoTemp.setDimensiones(dimensiones);
-			if(pesoTotal != null) productoTemp.setPesoTotal(pesoTotal);
+			if(peso_total != null) productoTemp.setPeso_total(peso_total);
 			if(existencias != null) productoTemp.setExistencias(existencias);
-			if(precio != null) productoTemp.setPrecio(precio);
-			if(imgUrl != null) productoTemp.setImgUrl(imgUrl);
-			if(enOferta != null)productoTemp.setEnOferta(enOferta);
-			if(precioOferta != null) productoTemp.setPrecioOferta(precioOferta);
+			if(precio != 0) productoTemp.setPrecio(precio);
+			if(img_url != null) productoTemp.setImg_url(img_url);
+			if(en_oferta != null)productoTemp.setEn_oferta(en_oferta);
+			if(precio_oferta != 0) productoTemp.setPrecio_oferta(precio_oferta);
 			
 			productosRepository.save(productoTemp);
 		}
