@@ -12,6 +12,5 @@ import com.FrijolVegano.Entity.Usuarios;
 public interface UsuariosRepository extends JpaRepository<Usuarios, Long> {
 	@Query("SELECT u FROM Usuarios u WHERE u.email = :email")
 	Optional<Usuarios> buscarPorEmail(@Param("email") String email);
-//	Optional<Usuarios> buscarPorEmail(String email);
 	//Aqui el correo es el dato importante ya que es con el que se identifican los usuarios
 }

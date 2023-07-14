@@ -20,7 +20,7 @@ import com.FrijolVegano.Entity.Usuarios;
 import com.FrijolVegano.Service.UsuariosService;
 
 @RestController
-@RequestMapping (path = "/frijolVegano/usuario")
+@RequestMapping (path = "/frijolvegano/usuarios")
 @CrossOrigin(origins = "*", methods = { RequestMethod.GET, RequestMethod.POST, RequestMethod.DELETE,RequestMethod.PUT })
 public class UsuariosController {
 	public final UsuariosService usuariosService;
@@ -54,14 +54,14 @@ public class UsuariosController {
 	//Modificar usuarios(por su id existente)
 	@PutMapping(path = "{idUsuarios}")
 	public Usuarios putUsuarios(@PathVariable("idUsuarios") Long id,
-			@RequestParam(required = false) boolean admin,
+			@RequestParam(required = false)String admon,
 			@RequestParam(required = false)String nombre,
 			@RequestParam(required = false)String telefono,
 			@RequestParam(required = false)String email,
 			@RequestParam(required = false)String contrasenia,
-			@RequestParam(required = false)String imagenPerfil,
+			@RequestParam(required = false)String imagen_perfil,
 			@RequestParam(required = false)String direccion) {
-		return usuariosService.modificarUsuarios(id, admin, nombre, telefono, email, contrasenia, imagenPerfil, direccion);
+		return usuariosService.modificarUsuarios(id, admon, nombre, telefono, email, contrasenia, imagen_perfil, direccion);
 	}//modificarUsuarios
 	
 	//DELET

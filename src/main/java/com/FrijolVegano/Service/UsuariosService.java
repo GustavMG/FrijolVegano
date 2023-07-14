@@ -38,7 +38,7 @@ public class UsuariosService {
 	
 	//Modificamos parametros del usuario (PUT) 
 	//EXCEPTUANDO EL COREEO todos los demas parámetros se pueden modificar
-	public Usuarios modificarUsuarios(Long id, boolean admin, String nombre, String telefono, String email, String contrasenia, String imagenPerfil, String direccion) {
+	public Usuarios modificarUsuarios(Long id, String admon, String nombre, String telefono, String email, String contrasenia, String imagen_perfil, String direccion) {
 		Usuarios usuarioTemp = null;
 		if(usuariosRepository.existsById(id)) {
 			usuarioTemp = usuariosRepository.findById(id).get();
@@ -46,12 +46,12 @@ public class UsuariosService {
 			//Asignación de nuevos parámetros, NO TODOS se pueden modificar
 			//Validación de NO datos en blanco, pero NO aplica para todos
 			//Id NO se modifica
-			//Tipo de cuenta NO se modifica por el momento
+			if(admon != null)usuarioTemp.setAdmon(admon);//el id si es necesario
 			if(nombre != null) usuarioTemp.setNombre(nombre);
 			if(telefono != null) usuarioTemp.setTelefono(telefono);
 			//email NO se puede modificar
 			//contraseña NO se puede modificar por el momento
-			usuarioTemp.setImagenPerfil(imagenPerfil); //La imagen de perfil no es estrictamente necesaria
+			usuarioTemp.setImagen_perfil(imagen_perfil); //La imagen de perfil no es estrictamente necesaria
 			usuarioTemp.setDireccion(direccion); //La dirección no es estrictamente necesaria
 			
 			usuariosRepository.save(usuarioTemp);
